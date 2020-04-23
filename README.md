@@ -4,9 +4,22 @@ A Instagram scraper written in Python that scrap (insta ID, Followers, Following
 
 # How to install
 
-`pip install requests` 
+# For Termux
+    pkg install git
+    pkg install python
+    git clone https://github.com/dx4iot/insta-scraper.git
+    pip install requests 
+    pip install bs4 
+    cd insta-scraper 
+    python instainfo.py
 
-`pip install bs4` 
+# For Linux
+    sudo apt install git
+    git clone https://github.com/dx4iot/insta-scraper.git
+    pip install requests 
+    pip install bs4 
+    cd insta-scraper 
+    python instainfo.py
 
 ## Screenshot
 ![](images/img.PNG)

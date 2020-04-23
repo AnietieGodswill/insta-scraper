@@ -22,7 +22,7 @@ session.headers['Content-Language'] = LANGUAGE
 print(f"""
 {re}
 ------------------------------------------
-All In One Social Scapper             
+Insta Scapper             
 Developed By: Nishant Tiwari          
 ------------------------------------------
 """)

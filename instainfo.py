@@ -1,7 +1,7 @@
 #----------------modules--------------------#
 import requests 
 from bs4 import BeautifulSoup
-#----------------modules--------------------#
+#----------------end--------------------#
 
 while(True):
     nu = '\033[0m'
@@ -17,7 +17,7 @@ while(True):
     session.headers['User-Agent'] = USER_AGENT
     session.headers['Accept-Language'] = LANGUAGE
     session.headers['Content-Language'] = LANGUAGE
-    #----------------session--------------------#
+    #----------------end--------------------#
 
     #----------------credit--------------------#
     print(f"""
@@ -27,14 +27,13 @@ while(True):
     Developed By: Nishant Tiwari          
     ------------------------------------------
     """)
-
-    #----------------credit--------------------#
+    #----------------end--------------------#
 
     #--------------instagram request----------------#
     instaUsername = input(f"{cy}Enter Username:{nu} ")
     instaURL = 'https://www.instagram.com/'+ instaUsername
     instaURLReq = requests.get(instaURL).text
-    #--------------instagram request----------------#
+    #--------------end----------------#
 
     #--------------instagram scraping----------------#
     #for name
@@ -65,9 +64,7 @@ while(True):
     startsWithBiography = '"biography":"'
     endsWithBiography ='","blocked_by_viewer"'
     instaBiography= instaURLReq[instaURLReq.find(startsWithBiography)+len(startsWithBiography):instaURLReq.rfind(endsWithBiography)]
-
-
-    #--------------instagram scraping----------------#
+    #--------------end----------------#
 
     #--------------instagram output----------------#
     print(f"{gr}[~]{gr} Name: {nu}{instaWithURL}")
@@ -82,4 +79,4 @@ while(True):
     else:
         print(f"{gr}[~]{gr} Biography: {nu}{instaBiography}")
 
-    #--------------instagram output----------------#
+    #--------------end----------------#

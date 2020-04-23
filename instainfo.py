@@ -53,7 +53,7 @@ startsWithFollowing = '"edge_follow":{"count":'
 endsWithFollowing = '},"follows_viewer"'
 instaFollowing = instaURLReq[instaURLReq.find(startsWithFollowing)+len(startsWithFollowing):instaURLReq.rfind(endsWithFollowing)]
 
-instaSoup = BeautifulSoup(instaURLReq,"lxml")
+instaSoup = BeautifulSoup(instaURLReq,"html.parser")
 instaPP = instaSoup.find("meta",attrs={"property":"og:image"})
 instaProfilePic = instaPP.get("content")
 #--------------instagram scraping----------------#

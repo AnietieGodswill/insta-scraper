@@ -52,10 +52,20 @@ instaFollowers = instaURLReq[instaURLReq.find(startsWithFollowed)+len(startsWith
 startsWithFollowing = '"edge_follow":{"count":'
 endsWithFollowing = '},"follows_viewer"'
 instaFollowing = instaURLReq[instaURLReq.find(startsWithFollowing)+len(startsWithFollowing):instaURLReq.rfind(endsWithFollowing)]
-
+#for instaprofilepic
 instaSoup = BeautifulSoup(instaURLReq,"html.parser")
 instaPP = instaSoup.find("meta",attrs={"property":"og:image"})
 instaProfilePic = instaPP.get("content")
+#for externallink
+startsWithExternalLink = '"external_url":'
+endsWithExternalLink= ',"external_url'
+instaExternalLink = instaURLReq[instaURLReq.find(startsWithExternalLink)+len(startsWithExternalLink):instaURLReq.rfind(endsWithExternalLink)]
+#for biography
+startsWithBiography = '"biography":"'
+endsWithBiography ='","blocked_by_viewer"'
+instaBiography= instaURLReq[instaURLReq.find(startsWithBiography)+len(startsWithBiography):instaURLReq.rfind(endsWithBiography)]
+print(instaBiography)
+
 #--------------instagram scraping----------------#
 
 #--------------instagram output----------------#
@@ -64,4 +74,8 @@ print(f"{gr}[~]{gr} ID: {nu}{instaWithID}")
 print(f"{gr}[~]{gr} Followers: {nu}{instaFollowers}")
 print(f"{gr}[~]{gr} Following: {nu}{instaFollowing}")
 print(f"{gr}[~]{gr} Profile Pic: {nu}{instaProfilePic}")
+if '""' not in instaExternalLink:
+    print(f"{gr}[~]{gr} External URL: {nu}{instaExternalLink}")
+print(f"{gr}[~]{gr} Biography: {nu}{instaBiography}")
+
 #--------------instagram output----------------#

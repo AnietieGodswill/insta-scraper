@@ -64,7 +64,7 @@ instaExternalLink = instaURLReq[instaURLReq.find(startsWithExternalLink)+len(sta
 startsWithBiography = '"biography":"'
 endsWithBiography ='","blocked_by_viewer"'
 instaBiography= instaURLReq[instaURLReq.find(startsWithBiography)+len(startsWithBiography):instaURLReq.rfind(endsWithBiography)]
-print(instaBiography)
+
 
 #--------------instagram scraping----------------#
 
@@ -76,6 +76,9 @@ print(f"{gr}[~]{gr} Following: {nu}{instaFollowing}")
 print(f"{gr}[~]{gr} Profile Pic: {nu}{instaProfilePic}")
 if '""' not in instaExternalLink:
     print(f"{gr}[~]{gr} External URL: {nu}{instaExternalLink}")
-print(f"{gr}[~]{gr} Biography: {nu}{instaBiography}")
+if(instaBiography == ""):
+    print(f"{gr}[~]{gr} Biography: {nu}null")
+else:
+    print(f"{gr}[~]{gr} Biography: {nu}{instaBiography}")
 
 #--------------instagram output----------------#

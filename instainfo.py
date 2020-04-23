@@ -85,7 +85,7 @@ def instascrap():
 
 #--------------instagram output----------------#
 while(True):
-    again = input(f"{yl}PRESS S OR s TO START: ")
+    again = input("PRESS S OR s TO START: ")
     while(again =="Y" or "y"):
         instascrap()
         break

@@ -1,9 +1,8 @@
 #----------------modules--------------------#
 import requests 
 from bs4 import BeautifulSoup
-#----------------end--------------------#
-
-while(True):
+#----------------modules--------------------#
+def instascrap():
     nu = '\033[0m'
     re = '\033[1;31m'
     gr = '\033[1;32m'
@@ -17,7 +16,7 @@ while(True):
     session.headers['User-Agent'] = USER_AGENT
     session.headers['Accept-Language'] = LANGUAGE
     session.headers['Content-Language'] = LANGUAGE
-    #----------------end--------------------#
+    #----------------session--------------------#
 
     #----------------credit--------------------#
     print(f"""
@@ -27,13 +26,16 @@ while(True):
     Developed By: Nishant Tiwari          
     ------------------------------------------
     """)
-    #----------------end--------------------#
+
+    #----------------credit--------------------#
 
     #--------------instagram request----------------#
+
+        
     instaUsername = input(f"{cy}Enter Username:{nu} ")
     instaURL = 'https://www.instagram.com/'+ instaUsername
     instaURLReq = requests.get(instaURL).text
-    #--------------end----------------#
+    #--------------instagram request----------------#
 
     #--------------instagram scraping----------------#
     #for name
@@ -64,7 +66,9 @@ while(True):
     startsWithBiography = '"biography":"'
     endsWithBiography ='","blocked_by_viewer"'
     instaBiography= instaURLReq[instaURLReq.find(startsWithBiography)+len(startsWithBiography):instaURLReq.rfind(endsWithBiography)]
-    #--------------end----------------#
+
+
+    #--------------instagram scraping----------------#
 
     #--------------instagram output----------------#
     print(f"{gr}[~]{gr} Name: {nu}{instaWithURL}")
@@ -79,4 +83,13 @@ while(True):
     else:
         print(f"{gr}[~]{gr} Biography: {nu}{instaBiography}")
 
-    #--------------end----------------#
+#--------------instagram output----------------#
+while(True):
+    again = input(f"{yl}PRESS S OR s TO START: ")
+    while(again =="Y" or "y"):
+        instascrap()
+        break
+    
+
+
+

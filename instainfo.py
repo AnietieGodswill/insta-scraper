@@ -85,8 +85,8 @@ def instascrap():
 
 #--------------instagram output----------------#
 while(True):
-    again = input("PRESS S OR s TO START: ")
-    if(again =="S" or again == "s"):
+    again = input("PRESS S TO START: ").lower()
+    if(again == "s"):
         instascrap()
     else:
         exit()

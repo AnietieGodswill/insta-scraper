@@ -1,6 +1,6 @@
 # insta-scraper
 
-A Instagram scraper written in Python that scrap (insta ID, Followers, Following, etc) 
+This is a simple Instagram scraper tool, written in Python which scrap (insta ID, Followers, Following, External URL, etc) 
 
 # How to install
 

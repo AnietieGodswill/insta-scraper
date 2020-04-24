@@ -65,9 +65,23 @@ def instascrap():
     #for biography
     startsWithBiography = '"biography":"'
     endsWithBiography ='","blocked_by_viewer"'
-    instaBiography= instaURLReq[instaURLReq.find(startsWithBiography)+len(startsWithBiography):instaURLReq.rfind(endsWithBiography)]
-
-
+    instaBiography= instaURLReq[instaURLReq.find(startsWithBiography)+len(startsWithBiography):instaURLReq.rfind(endsWithBiography)].replace("\\n"," ")
+    #for private
+    startWithPrivate = 'is_private":'
+    endsWithPrivate = ',"is_verified"'
+    instaIsPrivate = instaURLReq[instaURLReq.find(startWithPrivate)+len(startWithPrivate):instaURLReq.rfind(endsWithPrivate)]
+    #for verified
+    startWithVerified = '"is_verified":'
+    endsWithVerified = ',"edge_mutual_followed_by"'
+    instaIsVerified = instaURLReq[instaURLReq.find(startWithVerified)+len(startWithVerified):instaURLReq.rfind(endsWithVerified)]
+    #for posts
+    #startWithPosts = '"edge_owner_to_timeline_media":{"count":'
+    #endsWithPosts = ',"page_info"'
+    #instaPosts = instaURLReq[instaURLReq.find(startWithPosts)+len(startWithPosts):instaURLReq.rfind(endsWithPosts)]
+    startWithBusiness = '"is_business_account":'
+    endsWithBusiness = ',"is_joined_recently"'
+    instaBusiness = instaURLReq[instaURLReq.find(startWithBusiness)+len(startWithBusiness):instaURLReq.rfind(endsWithBusiness)]
+    
     #--------------instagram scraping----------------#
 
     #--------------instagram output----------------#
@@ -76,13 +90,28 @@ def instascrap():
     print(f"{gr}[~]{gr} Followers: {nu}{instaFollowers}")
     print(f"{gr}[~]{gr} Following: {nu}{instaFollowing}")
     print(f"{gr}[~]{gr} Profile Pic: {nu}{instaProfilePic}")
+
     if ('""' not in instaExternalLink):
-        print(f"{gr}[~]{gr} External URL: {nu}{instaExternalLink}")
+        print(f"{gr}[~]{gr} External URL:",nu,instaExternalLink.replace('"'," "))  
     if(instaBiography == ""):
-        print(f"{gr}[~]{gr} Biography: {nu}null")
+        print(f"{gr}[~]{gr} Biography: {nu}None")
     else:
         print(f"{gr}[~]{gr} Biography: {nu}{instaBiography}")
+    if(instaIsPrivate == "false"):
+        print(f"{gr}[~]{gr} Private Account: {nu}No")
+    else:
+        print(f"{gr}[~]{gr} Private Account: {nu}Yes")
+    if( instaIsVerified == "false"):
+        print(f"{gr}[~]{gr} Verified Account: {nu}No")
+    else:
+        print(f"{gr}[~]{gr} Verified Account: {nu}Yes")
+    if(instaBusiness == "false"):
+        print(f"{gr}[~]{gr} Business Account: {nu}No")
+    else:
+        print(f"{gr}[~]{gr} Business Account: {nu}Yes")
+    
 
+     
 #--------------instagram output----------------#
 while(True):
     again = input("PRESS S TO START: ").lower()

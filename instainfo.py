@@ -34,7 +34,7 @@ def instascrap():
         
     instaUsername = input(f"{cy}Enter Username:{nu} ")
     instaURL = 'https://www.instagram.com/'+ instaUsername
-    instaURLReq = requests.get(instaURL).text
+    instaURLReq = session.get(instaURL).text
     #--------------instagram request----------------#
 
     #--------------instagram scraping----------------#
@@ -120,7 +120,3 @@ while(True):
     else:
         exit()
     
-    
-
-
-
